@@ -7,4 +7,5 @@ class Dog < ApplicationRecord
   validates :breed, presence: true
   validates :size,  presence: true
   validates :age, presence: true
+  has_one_attached :photo
 end

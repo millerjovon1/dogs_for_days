@@ -31,7 +31,12 @@ gem "devise"
 
 gem "faker"
 
-gem "cloudinary"
+# Gemfile
+gem 'cloudinary', '~> 1.16.0'
+# .env
+
+
+
 
 
 # Use Redis adapter to run Action Cable in production
@@ -83,5 +88,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-

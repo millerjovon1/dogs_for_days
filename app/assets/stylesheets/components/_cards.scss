@@ -34,13 +34,14 @@
 }
 
 .dog-cards{
-  background: green;
+  background:grey;
   color:white;
   size: 15px;
+  border-radius: 5px;
 }
 
 .dogs-image{
-height:200px;
+height:150px;
 }
 .cards {
   display: grid;

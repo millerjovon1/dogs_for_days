@@ -2,7 +2,7 @@
   <h1>Discover our cute dogs</h1>
   <div class="cards">
     <% @dogs.each do |dog| %>
-      <div class= "dog-cards" style="background">
+      <div class= "dog-cards" style="background-image">
         <%= dog.name %>
         <%= image_tag dog.image_url , class: "dogs-image"%>
         <%= link_to 'PET ME', dog_path(dog), class: 'card-category-link'%>
