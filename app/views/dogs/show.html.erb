@@ -3,8 +3,8 @@
 <h1 class="-center p-4"><%= @dog.name %>'s Profile</h1>
 </div>
 
-<div class="container d-flex justify-content-center">
-  <%= image_tag @dog.image_url, width: "300", height: "fit", class: "rounded-5" %>
+<div class="container d-flex justify-content-center ">
+  <%= image_tag @dog.image_url, width: "300", height: "300", class: "rounded-5" %>
   <div class="ms-5 border border-3 rounded p-3 align-center">
   <p class="p-2 ">🐾 <%= @dog.name %></p>
   <p class="p-2">🐾 <%= @dog.age %></p>
@@ -17,7 +17,7 @@
 
 
 <div class="container mt-4 d-flex justify-content-center">
-<div class="form border p-4" >
+<div class="form border p-4 " >
  <%= render 'bookings/form', booking: @booking %>
  </div>
 </div>
