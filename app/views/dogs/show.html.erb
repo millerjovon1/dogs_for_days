@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Profile Page</h1>
+</div>
+
+<div class="container">
+<div>
+<h2><%= @dog.name %></h2>
+<p><%= @dog.age %></p>
+<p><%= @dog.breed %></p>
+<p><%= @dog.size %></p>
+<p><%= @dog.price %></p>
+</div>
+
+<%= link_to 'Book this dog!', dog_bookings_path(@dog), class: 'btn btn-primary' %>
+ <%= link_to '< Dogs', dogs_path, class: 'btn-light opacity-60 text-decoration-none' %>
