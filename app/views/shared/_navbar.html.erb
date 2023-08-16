@@ -6,8 +6,7 @@
     <h1>  Dogs For Days </h1> </div>
 
 <div>
-<%= link_to 'My Bookings', owner_bookings_path %>
-<%= link_to 'Add Your Dog', new_dog_path %>
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
@@ -15,8 +14,11 @@
           <li class="nav-item">
           </li>
 
-              <%= link_to "Log out", destroy_user_session_path, class: 'nav-bar-link',data: {turbo_method: :delete} %>
 
+<%= link_to 'My Bookings', bookings_path, class: 'nav-bar-link' %>
+<%= link_to 'My Dogs', owner_bookings_path, class: 'nav-bar-link' %>
+<%= link_to 'Add Your Dog', new_dog_path, class: 'nav-bar-link' %>
+ <%= link_to "🚪", destroy_user_session_path, class: 'nav-bar-link',data: {turbo_method: :delete} %>
           </li>
         <% else %>
           <li class="nav-item">
