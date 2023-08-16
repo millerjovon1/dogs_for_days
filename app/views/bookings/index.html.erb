@@ -14,7 +14,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-    <h2>Future  Bookings</h2>
+    <h3>Future  Bookings</h3>
     <% @future_bookings.each do |booking| %>
       <div class="card-product">
         <%= image_tag booking.dog.image_url %>
@@ -27,7 +27,7 @@
     <% end %>
   </div>
   <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
-    <h2>Past Bookings</h2>
+    <h3>Past Bookings</h3>
     <% @past_bookings.each do |booking| %>
       <div class="card-product">
         <%= image_tag booking.dog.image_url %>
