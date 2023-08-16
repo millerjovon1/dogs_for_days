@@ -5,5 +5,4 @@ class Owner::BookingsController < ApplicationController
     @future_bookings = current_user.bookings_as_owner
     @past_bookings = current_user.bookings_as_owner
     @bookings = current_user.bookings_as_owner
-
 end
