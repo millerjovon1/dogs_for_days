@@ -4,7 +4,7 @@
   </div>
   <div class="mx-auto w-50 border p-4 border-3 rounded-5 p-3" id="profilecolor" >
     <%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile rounded mx-auto d-block" %>
-    <div class="card-product">
+    <div class="show-card-product">
       <p class="p-2 ">🐾 <%= @dog.name %></p>
       <p class="p-2">🐾 <%= @dog.age %></p>
       <p class="p-2">🐾 <%= @dog.breed %></p>
