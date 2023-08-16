@@ -1,4 +1,5 @@
 <div class="container">
+<div class="text-center">
   <h1>My Rentable Dogs</h1>
 </div>
 <ul class="nav tabs-underlined" id="myTab" role="tablist">
@@ -12,7 +13,7 @@
     <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Pending</span>
   </li>
 </ul>
-<div class="tab-content" id="myTabContent">
+<div class="tab-content p-4" id="myTabContent">
   <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
     <h2>Future  Bookings</h2>
     <% if @future_bookings.nil?  %>
@@ -50,4 +51,5 @@
   </div>
   <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
   </div>
+</div>
 </div>
