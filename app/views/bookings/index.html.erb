@@ -17,7 +17,7 @@
     <h3>Future  Bookings</h3>
     <% @future_bookings.each do |booking| %>
       <div class="card-product">
-        <%= image_tag booking.dog.image_url %>
+        <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
         <div class="card-product-infos">
           <h2> Dog Name: <%=booking.dog.name  %></h2>
           <p> Start Date: <%= booking.start_date %></p>
@@ -30,7 +30,7 @@
     <h3>Past Bookings</h3>
     <% @past_bookings.each do |booking| %>
       <div class="card-product">
-        <%= image_tag booking.dog.image_url %>
+        <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
         <div class="card-product-infos">
           <h2> Dog Name: <%=booking.dog.name  %></h2>
           <p> Start Date: <%= booking.start_date %></p>

@@ -1,55 +1,55 @@
 <div class="container">
-<div class="text-center">
-  <h1>My Rentable Dogs</h1>
-</div>
-<ul class="nav tabs-underlined" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Future Bookings</span>
-  </li>
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Past Bookings</span>
-  </li>
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Pending</span>
-  </li>
-</ul>
-<div class="tab-content p-4" id="myTabContent">
-  <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-    <h3>Future  Bookings</h3>
-    <% if @future_bookings.nil?  %>
-      <p>Sorry no current bookings</p>
-    <% else   %>
-      <% @future_bookings.each do |booking| %>
-        <div class="card-product">
-          <%= image_tag booking.dog.image_url %>
-          <div class="card-product-infos">
-            <h2> Dog Name: <%=booking.dog.name  %></h2>
-            <p> Start Date: <%= booking.start_date %></p>
-            <p> End Date: <%= booking.end_date %></p>
+  <div class="text-center">
+    <h1>My Rentable Dogs</h1>
+  </div>
+  <ul class="nav tabs-underlined" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Future Bookings</span>
+    </li>
+    <li class="nav-item" role="presentation">
+      <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Past Bookings</span>
+    </li>
+    <li class="nav-item" role="presentation">
+      <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Pending</span>
+    </li>
+  </ul>
+  <div class="tab-content p-4" id="myTabContent">
+    <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+      <h3>Future  Bookings</h3>
+      <% if @future_bookings.nil?  %>
+        <p>Sorry no current bookings</p>
+      <% else   %>
+        <% @future_bookings.each do |booking| %>
+          <div class="card-product">
+            <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
+            <div class="card-product-infos">
+              <h2> Dog Name: <%=booking.dog.name  %></h2>
+              <p> Start Date: <%= booking.start_date %></p>
+              <p> End Date: <%= booking.end_date %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
-    <h3>Past Bookings</h3>
-    <% if @past_bookings.nil?  %>
-      <p>Sorry no current bookings</p>
-      <h2>Past Bookings</h2>
-    <% else   %>
-      <% @past_bookings.each do |booking| %>
-        <div class="card-product">
-          <%= image_tag booking.dog.image_url %>
-          <div class="card-product-infos">
-            <h2> Dog Name: <%=booking.dog.name  %></h2>
-            <p> Start Date: <%= booking.start_date %></p>
-            <p> End Date: <%= booking.end_date %></p>
+    </div>
+    <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+      <h3>Past Bookings</h3>
+      <% if @past_bookings.nil?  %>
+        <p>Sorry no current bookings</p>
+        <h2>Past Bookings</h2>
+      <% else   %>
+        <% @past_bookings.each do |booking| %>
+          <div class="card-product">
+            <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
+            <div class="card-product-infos">
+              <h2> Dog Name: <%=booking.dog.name  %></h2>
+              <p> Start Date: <%= booking.start_date %></p>
+              <p> End Date: <%= booking.end_date %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
+    </div>
   </div>
-  <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
-  </div>
-</div>
 </div>
