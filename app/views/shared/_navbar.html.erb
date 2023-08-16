@@ -1,40 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon flexbox">
+<div class="container">
 
-      <h1> 🐶 Dogs For Days </h1>
-<%= link_to 'HOME', root_path, class: 'card-category-link'%>
-</div>
-  <div class="container">
-    <% end %>
+<div class= "flexbox">
+    <%= link_to '🐶', root_path, class: 'nav-bar-link-home'%>
+    <h1>  Dogs For Days </h1> </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div>
+<%= link_to 'My Bookings', owner_bookings_path %>
+<%= link_to 'Add Your Dog', new_dog_path %>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
           </li>
           <li class="nav-item">
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+
+              <%= link_to "Log out", destroy_user_session_path, class: 'nav-bar-link',data: {turbo_method: :delete} %>
+
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-bar-link" %>
           </li>
         <% end %>
       </ul>
+      </div>
     </div>
-  </div>
 </div>
