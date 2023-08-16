@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @dogs = Dog.all
   end
@@ -17,7 +19,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to owner_bookings_path
+      redirect_to dog_path(@dog)
     else
       render :new, status: :unprocessable_entity
     end
