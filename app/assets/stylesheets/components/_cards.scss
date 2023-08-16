@@ -33,11 +33,25 @@
   margin: 8px 0px;
 }
 
-.dog-cards{
-  background:grey;
-  color:white;
+.dog-card{
+  color:green;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   size: 15px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+
+  h2{
+    font-size:20px;
+  }
+
+  img {
+    width: 55%;
+    object-position: center;
+    object-fit: cover;
+    margin-right: 24px;
+  }
 }
 
 .dogs-image{

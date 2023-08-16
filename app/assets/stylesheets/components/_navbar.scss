@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: yellowgreen;
+  background: rgb(174, 240, 173);
   color:black;
 }
 
@@ -22,12 +22,12 @@
 }
 
 .card-category-link {
- color: red;
+ color: rgb(4, 57, 38);
  text-decoration: none;
 }
 
 .nav-bar-link {
-  color: pink;
+  color: white;
   text-decoration: none;
   padding-right: 10px;
 }
@@ -40,6 +40,6 @@
 }
 
 a:hover, a:active {
-  color: white;
+  color: grey;
   transition: 0.7s;
 }
