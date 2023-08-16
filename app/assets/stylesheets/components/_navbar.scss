@@ -1,8 +1,16 @@
 .navbar-lewagon {
-  display: flex;
   justify-content: space-between;
   background: yellowgreen;
   color:black;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,4 +19,27 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.card-category-link {
+ color: red;
+ text-decoration: none;
+}
+
+.nav-bar-link {
+  color: pink;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+.nav-bar-link-home {
+  font-size: 70px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+a:hover, a:active {
+  color: white;
+  transition: 0.7s;
 }
