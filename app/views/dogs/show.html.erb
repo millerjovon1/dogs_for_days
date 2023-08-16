@@ -1,25 +1,26 @@
 <div class="container">
 <div class="d-flex justify-content-center">
 <h1 class="-center p-4"><%= @dog.name %>'s Profile</h1>
-</div>
 
-<div class="container d-flex justify-content-center ">
-  <%= image_tag @dog.image_url, width: "300", height: "300", class: "rounded-5" %>
-  <div class="ms-5 border border-3 rounded p-3 align-center">
+<div class="cards">
+<div class="form border p-4 border-3 rounded-5 p-3" >
+ <%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile p-3" %>
+
+  <div class="card-product">
   <p class="p-2 ">🐾 <%= @dog.name %></p>
   <p class="p-2">🐾 <%= @dog.age %></p>
   <p class="p-2">🐾 <%= @dog.breed %></p>
   <p class="p-2">🐾 <%= @dog.size.capitalize %></p>
   <p class="p-2">🐾 $<%= @dog.price %>/day</p>
+
+
+
   </div>
-  </div>
 
-
-
-<div class="container mt-4 d-flex justify-content-center">
-<div class="form border p-4 " >
  <%= render 'bookings/form', booking: @booking %>
  </div>
+  </div>
+</div>
 </div>
  <%= link_to 'Look for more Dogs', dogs_path, class: 'p-3 btn-light opacity-60 text-decoration-none' %>
 
