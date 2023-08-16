@@ -1,27 +1,17 @@
 <div class="container">
-<div class="d-flex justify-content-center">
-<h1 class="-center p-4"><%= @dog.name %>'s Profile</h1>
-
-<div class="cards">
-<div class="form border p-4 border-3 rounded-5 p-3" >
- <%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile p-3" %>
-
-  <div class="card-product">
-  <p class="p-2 ">🐾 <%= @dog.name %></p>
-  <p class="p-2">🐾 <%= @dog.age %></p>
-  <p class="p-2">🐾 <%= @dog.breed %></p>
-  <p class="p-2">🐾 <%= @dog.size.capitalize %></p>
-  <p class="p-2">🐾 $<%= @dog.price %>/day</p>
-
-
-
+  <div class="d-flex justify-content-center">
+    <h1 class="-center p-4"><%= @dog.name %>'s Profile</h1>
   </div>
-
- <%= render 'bookings/form', booking: @booking %>
- </div>
+  <div class="mx-auto w-50 border p-4 border-3 rounded-5 p-3" id="profilecolor" >
+    <%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile rounded mx-auto d-block" %>
+    <div class="show-card-product">
+      <p class="p-2 ">🐾 <%= @dog.name %></p>
+      <p class="p-2">🐾 <%= @dog.age %></p>
+      <p class="p-2">🐾 <%= @dog.breed %></p>
+      <p class="p-2">🐾 <%= @dog.size.capitalize %></p>
+      <p class="p-2">🐾 $<%= @dog.price %>/day</p>
+    </div>
+    <%= render 'bookings/form', booking: @booking, class: "form" %>
+    <%= link_to 'Look for more Dogs', dogs_path, class: 'p-3 btn-light opacity-60 text-decoration-none' %>
   </div>
-</div>
-</div>
- <%= link_to 'Look for more Dogs', dogs_path, class: 'p-3 btn-light opacity-60 text-decoration-none' %>
-
 </div>
