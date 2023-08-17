@@ -19,7 +19,13 @@ class BookingsController < ApplicationController
       else
         render "dogs/show", status: :unprocessable_entity
       end
-     end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to owner_bookings_path
+  end
 
      private
 
