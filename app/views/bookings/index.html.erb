@@ -19,9 +19,12 @@
       <div class="card-product">
         <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
         <div class="card-product-infos">
-          <h2> Dog Name: <%=booking.dog.name  %></h2>
-          <p> Start Date: <%= booking.start_date %></p>
-          <p> End Date: <%= booking.end_date %></p>
+          <div class="d-flex align-items-center">
+            <h2> <%=booking.dog.name  %></h2>
+            <p class='booking-tag booking-<%= booking.status %> ms-2 py-1 px-3 mt-0'><%= booking.status %></p>
+          </div>
+          <p>  <%= booking.start_date.strftime("%b %d") %></p>
+          <p>  <%= booking.end_date.strftime("%b %d")%></p>
         </div>
       </div>
     <% end %>
@@ -35,6 +38,7 @@
           <h2> Dog Name: <%=booking.dog.name  %></h2>
           <p> Start Date: <%= booking.start_date %></p>
           <p> End Date: <%= booking.end_date %></p>
+          <p class='booking-tag booking-<%= booking.status %>'><%= booking.status %></p>
         </div>
       </div>
     <% end %>
