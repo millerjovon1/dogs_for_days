@@ -35,7 +35,7 @@
       <div class="card-product">
         <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
         <div class="card-product-infos">
-          <h2>  <%=booking.dog.name.strftime("%b %d")  %></h2>
+          <h2>  <%=booking.dog.name  %></h2>
           <p>  <%= booking.start_date.strftime("%b %d") %></p>
           <p>  <%= booking.end_date.strftime("%b %d") %></p>
           <p class='booking-tag booking-<%= booking.status %>'><%= booking.status %></p>
