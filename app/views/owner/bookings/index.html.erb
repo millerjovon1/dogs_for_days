@@ -69,7 +69,19 @@
                 <p>  <%= booking.end_date.strftime("%b %d")%></p>
               </div>
             </div>
-           <%= render 'reviews/form', review: @review, user: booking.user %>
+            <% existing_review = Review.find_by(owner: current_user, renter: booking.user) %>
+            <% if existing_review %>
+            <div class="card-product-infos">
+            <h2>Your review</h2>
+            <div class="d-flex">
+            <p><%= existing_review.content %></p>
+            </div>
+            <strong><p> Rating: <%= existing_review.rating %></p></strong>
+            </div>
+            <% else %>
+            <div class="review-form-container">
+           <%=render 'reviews/form', review: @review, user: booking.user %>
+           <% end %>
           </div>
         <% end %>
       <% end %>
