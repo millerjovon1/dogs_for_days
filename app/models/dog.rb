@@ -9,6 +9,7 @@ class Dog < ApplicationRecord
   validates :age, presence: true
   has_one_attached :photo
   SIZES = ['small', "medium", 'large']
+  enum gender: {male: 'male', female: 'female'}
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

@@ -63,6 +63,7 @@ User.all.each do |user|
     age: Faker::Creature::Dog.age,
     size: Dog::SIZES.sample,
     price: Faker::Commerce.price,
+    gender: ['male', 'female'].sample,
     location: addresses.sample,
     image_url: "http://source.unsplash.com/featured/?dog>&#{rand(1000)}",
     user: user
