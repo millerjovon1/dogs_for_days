@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = current_user.bookings
     @future_bookings = current_user.bookings.future
     @past_bookings = current_user.bookings.past
+
   end
 
   def new

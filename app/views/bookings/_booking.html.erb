@@ -1,0 +1,30 @@
+<div class="card-product">
+  <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
+  <div class="card-product-infos">
+    <h2> <%=booking.dog.name  %></h2>
+    <strong>
+      <p>  <%=booking.user.first_name%>: is renting your dog</p>
+    </strong>
+    <div class="d-flex">
+      <p>  <%= booking.start_date.strftime("%b %d") %> - </p>
+      <p>  <%= booking.end_date.strftime("%b %d")%></p>
+    </div>
+    <% if booking.accepted?  && booking.past? && current_user == booking.dog.user%>
+      <%= render 'reviews/form', review: @review, user: booking.user %>
+    <% end %>
+    <% if booking.pending?  && current_user == booking.dog.user%>
+      <div class="d-flex">
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+          <%= f.submit 'Accept', class: 'btn btn-info' %>
+        <% end %>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+          <%= f.submit 'Reject', class: 'btn btn-light' %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class='booking-tag booking-<%= booking.status %>'><%= booking.status %></p>
+    <% end %>
+  </div>
+</div>
