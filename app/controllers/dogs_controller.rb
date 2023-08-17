@@ -19,7 +19,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to owner_bookings_path
     else
       render :new, status: :unprocessable_entity
     end
