@@ -7,6 +7,7 @@ class DogsController < ApplicationController
     #@dogs = @dogs.where('price <= ?', params[:max_price]) if params[:max_price].present?
     @dogs = @dogs.where(size: params[:size]) if params[:size].present?
     #@dogs = @dogs.near(params[:location]) if params[:location].present?
+
     #@dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
 
 
@@ -18,6 +19,9 @@ class DogsController < ApplicationController
         popup_html: render_to_string(partial: "dogs/map_popup", locals: { dog: dog })
       }
     end
+
+    @dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
+
   end
 
   def show

@@ -1,48 +1,6 @@
 <div class="container">
-  <h1>Your Bookings</h1>
-</div>
-<ul class="nav tabs-underlined" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Future Bookings</span>
-  </li>
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Past Bookings</span>
-  </li>
-  <li class="nav-item" role="presentation">
-    <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Pending</span>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-    <h3>Future  Bookings</h3>
-    <% @future_bookings.each do |booking| %>
-      <div class="card-product">
-        <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
-        <div class="card-product-infos">
-          <div class="d-flex align-items-center">
-            <h2> <%=booking.dog.name  %></h2>
-            <p class='booking-tag booking-<%= booking.status %> ms-2 py-1 px-3 mt-0'><%= booking.status %></p>
-          </div>
-          <p>  <%= booking.start_date.strftime("%b %d") %></p>
-          <p>  <%= booking.end_date.strftime("%b %d")%></p>
-        </div>
-      </div>
-    <% end %>
+  <div class="text-center">
+    <h1>Your Bookings</h1>
   </div>
-  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
-    <h3>Past Bookings</h3>
-    <% @past_bookings.each do |booking| %>
-      <div class="card-product">
-        <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
-        <div class="card-product-infos">
-          <h2>  <%=booking.dog.name  %></h2>
-          <p>  <%= booking.start_date.strftime("%b %d") %></p>
-          <p>  <%= booking.end_date.strftime("%b %d") %></p>
-          <p class='booking-tag booking-<%= booking.status %>'><%= booking.status %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
-  </div>
+  <%= render 'bookings/tabs', bookings: @bookings  %>
 </div>

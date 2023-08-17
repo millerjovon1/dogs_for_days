@@ -1,0 +1,43 @@
+<ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Future Bookings</span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Past Bookings</span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Pending</span>
+  </li>
+</ul>
+<div class="tab-content p-4" id="myTabContent">
+  <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+    <h3>Future Bookings</h3>
+    <% if bookings.accepted.future.blank? %>
+      <p>Sorry no current bookings</p>
+    <% else   %>
+      <% bookings.accepted.future.each do |booking| %>
+        <%= render "bookings/booking", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+    <h3>Past Bookings</h3>
+    <% if bookings.accepted.past.blank? %>
+      <p>Sorry no current bookings</p>
+    <% else   %>
+      <% bookings.accepted.past.each do |booking| %>
+        <%= render "bookings/booking", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
+    <h3>Pending</h3>
+    <% if bookings.pending.blank? %>
+      <p>Sorry no current bookings</p>
+    <%else %>
+      <%bookings.pending.each do |booking|%>
+        <%= render "bookings/booking", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

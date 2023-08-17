@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   enum status: [ :pending, :accepted, :rejected ]
   scope :past, -> { where('end_date < ?', Date.today) }
   scope :future, -> { where('start_date >= ?', Date.today) }
-  def pending?
-    status == 'pending'
+  def past?
+    end_date < Date.today
   end
 end

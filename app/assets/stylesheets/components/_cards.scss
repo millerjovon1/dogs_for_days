@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  // height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -8,6 +8,17 @@
   margin: 8px 0px;
 }
 
+.main-container{
+  display:flex;
+  gap:20px;
+}
+
+#map {
+  width:400px;
+  height:100vh;
+  position:sticky;
+  top:0px;
+}
 .show-card-product {
   overflow: hidden;
   height: 120px;
@@ -76,6 +87,7 @@ height:150px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   height: auto;
+  flex-grow: 1;
 }
 
 .profile { width: 300px;
