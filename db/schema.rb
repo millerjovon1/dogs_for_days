@@ -71,6 +71,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_024714) do
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "renter_id"
+    t.bigint "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_reviews_on_owner_id"
+    t.index ["renter_id"], name: "index_reviews_on_renter_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,4 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_024714) do
   add_foreign_key "bookings", "dogs"
   add_foreign_key "bookings", "users"
   add_foreign_key "dogs", "users"
+  add_foreign_key "reviews", "users", column: "owner_id"
+  add_foreign_key "reviews", "users", column: "renter_id"
 end
