@@ -61,7 +61,7 @@ User.all.each do |user|
     name: Faker::Creature::Horse.unique.name,
     breed: Faker::Creature::Dog.breed,
     age: Faker::Creature::Dog.age,
-    size: Faker::Creature::Dog.size,
+    size: Dog::SIZES.sample,
     price: Faker::Commerce.price,
     location: addresses.sample,
     image_url: "http://source.unsplash.com/featured/?dog>&#{rand(1000)}",
