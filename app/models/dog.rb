@@ -8,4 +8,5 @@ class Dog < ApplicationRecord
   validates :size,  presence: true
   validates :age, presence: true
   has_one_attached :photo
+  SIZES = ['small', "medium", 'large']
 end

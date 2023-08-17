@@ -1,5 +1,23 @@
 <div class="container my-5">
   <h1>Discover our cute dogs</h1>
+
+<div class="row justify-content-center">
+<div class="category wrapper">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
+    <div class="category-item category-selector">
+    <%='Size:'%>
+    <% Dog::SIZES.each do |size| %>
+    <label><%= size %></label>
+    <%= check_box_tag 'size[]', size %>
+    <%end%>
+      <%= submit_tag "🐩", name: "", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+  </div>
+</div>
+</div>
+
   <div class="cards">
     <% @dogs.each do |dog| %>
       <div class= "dog-card" style="background-image">

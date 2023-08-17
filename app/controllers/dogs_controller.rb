@@ -3,6 +3,11 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+    #@dogs = @dogs.where('price >= ?', params[:min_price]) if params[:min_price].present?
+    #@dogs = @dogs.where('price <= ?', params[:max_price]) if params[:max_price].present?
+    @dogs = @dogs.where(size: params[:size]) if params[:size].present?
+    #@dogs = @dogs.near(params[:location]) if params[:location].present?
+    #@dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
   end
 
   def show
