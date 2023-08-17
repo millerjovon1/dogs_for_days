@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index]
   end
   resources :bookings, only: [:update]
+
+  resources :user, only: [] do
+    resources :reviews, only: [:create]
+  end
+
+
+
 end
