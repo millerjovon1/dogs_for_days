@@ -14,7 +14,8 @@ class DogsController < ApplicationController
       {
         lat: dog.latitude,
         lng: dog.longitude,
-        marker_html: render_to_string(partial: "dogs/map_marker", locals: { dog: dog })
+        marker_html: render_to_string(partial: "dogs/map_marker", locals: { dog: dog }),
+        popup_html: render_to_string(partial: "dogs/map_popup", locals: { dog: dog })
       }
     end
   end
