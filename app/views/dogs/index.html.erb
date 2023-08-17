@@ -1,36 +1,33 @@
 <div class="container my-5">
   <h1>Discover our cute dogs</h1>
-
-<div class="row justify-content-center">
-<div class="category wrapper">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
-    <div class="category-item category-selector">
-    <%='Size:'%>
-    <% Dog::SIZES.each do |size| %>
-    <label><%= size %></label>
-    <%= check_box_tag 'size[]', size %>
-    <%end%>
-      <%= submit_tag "WOOF!", name: "", class: "btn btn-white" %>
-    <% end %>
-  </div>
-  </div>
-</div>
-</div>
-
-  <div class="cards">
-    <% @dogs.each do |dog| %>
-      <div class= "dog-card" style="background-image">
-
-        <%= image_tag (dog.photo.attached? ? cl_image_path(dog.photo.key) : dog.image_url), class: "dogs-image"%>
-        <div>
-          <h2><%= dog.name %></h2>
-          <%= link_to 'PET ME', dog_path(dog), class: 'card-category-link'%>
+  <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
+            <% Dog::SIZES.each do |size| %>
+              <%= check_box_tag size, size, false, class: "category-selector" %>
+              <label for="<%=size%>" ><%= size %></label>
+            <%end%>
+            <% Dog.genders.keys.each do |gender| %>
+              <label><%= gender %></label>
+              <%= check_box_tag 'gender[]', gender %>
+            <%end%>
+            <%= submit_tag "WOOF!", name: "", class: "btn btn-white btn btn-outline-success" %>
+          <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
-  <div class="col-md-6 my-5">
-      <%= render 'dogs/map', markers: @markers %>
+
+  <div class="main-container">
+    <div class="cards">
+      <% @dogs.each do |dog| %>
+        <div class= "dog-card" style="background-image">
+          <%= image_tag (dog.photo.attached? ? cl_image_path(dog.photo.key) : dog.image_url), class: "dogs-image"%>
+          <div>
+            <h2><%= dog.name %></h2>
+            <%= link_to 'PET ME', dog_path(dog), class: 'card-category-link'%>
+          </div>
+        </div>
+      <% end %>
     </div>
+    <%= render 'dogs/map', markers: @markers %>
+  </div>
 </div>
