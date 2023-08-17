@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning the DB..."
 Dog.destroy_all
+Review.destroy_all
 User.destroy_all
 
 # puts "Creating prisons..."
@@ -69,3 +70,42 @@ Dog.all.each do |dog|
   )
 end
 puts "... created #{Dog.count} dogs"
+
+
+content_examples = [
+  "Took really good care of my dog!",
+  "My dog loved them!",
+  "Played so much with my dog, great rentor",
+  "Took my little furbaby to the beach! Awesome!",
+  "Amazing experience with this dog renter! They took care of my furry friend as if it were their own. Will definitely hire again!",
+  "I'm so grateful for the attention and care my dog received from this renter. Five-star service all the way!",
+  "Top-notch dog renter. My dog had a blast and came back happy and well-exercised. Highly recommend!",
+  "Reliable and trustworthy renter for dogs. I was updated with pictures and messages, which put my mind at ease.",
+  "Excellent communication and professionalism. Left my dog with this renter for a weekend and couldn't be happier with the experience.",
+  "A fantastic dog renter who understands canine behavior. My dog made new friends and didn't want to leave!",
+  "Peace of mind is priceless, and that's exactly what I got from this dog renter. 10/10 would book again.",
+  "If you're looking for someone to love and care for your dog while you're away, this is the renter to choose.",
+  "Wonderful environment for dogs. Clean, spacious, and filled with positive energy. My dog can't wait to go back!",
+  "I was hesitant at first, but this dog renter exceeded all my expectations. My dog came home happy and healthy.",
+  "The dog rental experience was fantastic! Our pup came back tired and happy. Thank you to the wonderful renter!",
+  "I was amazed by the personalized attention my dog received from this renter. It's clear they have a genuine love for animals.",
+  "Leaving my dog with this renter was like a home away from home. I'm grateful for their dedication and care.",
+  "I couldn't be happier with the service provided by this dog renter. I received regular updates and felt at ease during my trip.",
+  "My dog is usually anxious around new people, but this renter's calm and friendly approach made all the difference.",
+  "I highly recommend this dog renter to anyone who wants their furry friend to have a great time while they're away.",
+  "It's evident that this renter is experienced with dogs. My pup had a blast and came back better behaved!",
+  "Choosing this renter was the best decision I made for my dog's care. They went above and beyond to make my dog comfortable.",
+  "I appreciated the effort this dog renter put into accommodating my dog's special needs. A compassionate and responsible choice.",
+  "My dog's tail starts wagging the moment we arrive at this renter's place. Clearly, a favorite destination for my furry companion.",
+]
+
+User.all.each do |user|
+  rand(1..6).times do
+    Review.create(
+      rating: rand(3..5),
+      content: content_examples.sample,
+      renter: user,
+      owner: User.where.not(id: user).sample
+    )
+  end
+end
