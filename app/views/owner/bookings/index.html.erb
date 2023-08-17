@@ -59,6 +59,7 @@
               <p> Start Date: <%= booking.start_date %></p>
               <p> End Date: <%= booking.end_date %></p>
             </div>
+           <%= render 'reviews/form', review: @review, user: booking.user %>
           </div>
         <% end %>
       <% end %>
