@@ -8,6 +8,15 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(size: params[:size]) if params[:size].present?
     #@dogs = @dogs.near(params[:location]) if params[:location].present?
     #@dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
+
+
+    @markers = @dogs.geocoded.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        marker_html: render_to_string(partial: "dogs/map_marker", locals: { dog: dog })
+      }
+    end
   end
 
   def show
@@ -24,7 +33,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to owner_bookings_path
     else
       render :new, status: :unprocessable_entity
     end
