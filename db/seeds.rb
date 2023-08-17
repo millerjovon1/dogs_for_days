@@ -1,3 +1,6 @@
+require 'yaml'
+require 'open-uri'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -48,6 +51,10 @@ puts "Creating dogs...."
 #   'Scrumple',
 # ]
 
+addresses_url = 'https://gist.githubusercontent.com/trouni/599e03440e2552e803c54c62916f874c/raw/cc7aff8deeb27c3f22ee501b6723766a8cb68f2b/addresses.yml'
+serialized_addresses = URI.open(addresses_url).read
+addresses = YAML.load(serialized_addresses)
+
 User.all.each do |user|
   Dog.create!(
     name: Faker::Creature::Horse.unique.name,
@@ -55,6 +62,7 @@ User.all.each do |user|
     age: Faker::Creature::Dog.age,
     size: Faker::Creature::Dog.size,
     price: Faker::Commerce.price,
+    location: addresses.sample,
     image_url: "http://source.unsplash.com/featured/?dog>&#{rand(1000)}",
     user: user
   )

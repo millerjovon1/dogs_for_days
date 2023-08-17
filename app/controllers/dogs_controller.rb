@@ -3,6 +3,14 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+
+    @markers = @dogs.geocoded.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        marker_html: render_to_string(partial: "dogs/map_marker", locals: { dog: dog })
+      }
+    end
   end
 
   def show
