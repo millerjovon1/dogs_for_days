@@ -4,13 +4,29 @@
       <div class="col-sm-8">
         <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
             <% Dog::SIZES.each do |size| %>
+<<<<<<< Updated upstream
               <%= check_box_tag size, size, false, class: "category-selector" %>
               <label for="<%=size%>" ><%= size %></label>
+=======
+            <div data-controller="paw-size">
+              <%= check_box_tag 'size[]', size, false, class: 'category-selector icon-align', data:{paw_size_target:"checkbox"} %>
+              <label data-action="click->paw-size#select" for="<%=size%>" style="font-size:<%= Dog.paws_pixels(size) %> ">
+                <i class="fa-solid fa-paw" style="color: #aef0ad;"></i>
+              </label>
+              </div>
+>>>>>>> Stashed changes
             <%end%>
             <% Dog.genders.keys.each do |gender| %>
               <label><%= gender %></label>
               <%= check_box_tag 'gender[]', gender %>
             <%end%>
+<<<<<<< Updated upstream
+=======
+            <%# <p>RATE RANGE</p>
+            <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div> %>
+>>>>>>> Stashed changes
             <%= submit_tag "WOOF!", name: "", class: "btn btn-white btn btn-outline-success" %>
           <% end %>
         </div>
