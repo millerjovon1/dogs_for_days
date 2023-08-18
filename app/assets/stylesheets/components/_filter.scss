@@ -17,6 +17,7 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
+  height:100px;
   width: 100%;
   font-size: 12px;
   text-align: left;
@@ -27,5 +28,5 @@
 }
 
 .category-selector:checked + label {
-  color: white !important;
+  background-color: green;
 }
