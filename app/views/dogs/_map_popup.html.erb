@@ -1,8 +1,8 @@
 <div class="p-2">
   <h2>
-    <%= link_to dog.name, dog_path(dog) %>
+    <%= link_to dog.name, dog_path(dog), class:"text-decoration-none text-black" %>
   </h2>
-  <%= image_tag dog.image_url, class:"img-thumbnail" %>
+ <div class="d-flex justify-content-center"> <%= image_tag dog.image_url, class:"img-thumbnail" %></div>
   <h6>
     <%= dog.location %>
   </h6>
