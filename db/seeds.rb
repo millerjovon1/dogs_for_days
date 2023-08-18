@@ -82,7 +82,7 @@ User.all.each do |user|
   Dog.create!(
     name: Faker::Creature::Horse.unique.name,
     breed: Faker::Creature::Dog.breed,
-    age: Faker::Creature::Dog.age,
+    age: rand(1..8),
     size: Dog::SIZES.sample,
     price: Faker::Commerce.price,
     gender: ['male', 'female'].sample,
