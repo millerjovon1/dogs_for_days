@@ -29,11 +29,11 @@ class Dog < ApplicationRecord
   def self.gender_icon(gender)
     case gender
     when 'male'
-      '<i class="fa-solid fa-mars" style="color: #3974db;"></i>'.html_safe
+      '<i class="fa-solid fa-mars" style="color: #3974db;font-size:44px"></i>'.html_safe
     when 'female'
-      '<i class="fa-solid fa-venus"></i>'.html_safe
+      '<i class="fa-solid fa-venus" style="color: #eb11ee;font-size:44px"></i>'.html_safe
     else
-      '<i class="fa-solid fa-venus"></i>'.html_safe
+      '<i class="fa-solid fa-venus" style="color: #3974db;font-size:44px"></i>'.html_safe
     end
   end
 end
