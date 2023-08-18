@@ -1,17 +1,39 @@
 <div class="container">
-  <div class="d-flex justify-content-center">
-    <h1 class="-center p-4"><%= @dog.name %>'s Profile</h1>
-  </div>
-  <div class="mx-auto w-50 border p-4 border-3 rounded-5 p-3" id="profilecolor" >
-    <%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile rounded mx-auto d-block" %>
-    <div class="show-card-product">
-      <p class="p-2 ">🐾 <%= @dog.name %></p>
-      <p class="p-2">🐾 <%= @dog.age %></p>
-      <p class="p-2">🐾 <%= @dog.breed %></p>
-      <p class="p-2">🐾 <%= @dog.size.capitalize %></p>
-      <p class="p-2">🐾 $<%= @dog.price %>/day</p>
+<div class="row p-4">
+<div class="row">
+  <%= link_to dogs_path, class: 'p-2 btn-light opacity-60 text-decoration-none' do %>
+    <i class="fa-solid fa-arrow-left" style="color: #000000;"></i>
+  <% end %>
+</div>
+</div>
+  <div class="row my-4">
+    <div class="col-md-6">
+      <div><%= image_tag (@dog.photo.attached? ? cl_image_path(@dog.photo.key) : @dog.image_url), class: "profile d-block" %>
+      </div>
     </div>
-    <%= render 'bookings/form', booking: @booking, class: "form" %>
-    <%= link_to 'Look for more Dogs', dogs_path, class: 'p-3 btn-light opacity-60 text-decoration-none' %>
+    <div class="d-flex flex-column align-items-center col-md-6">
+      <h1 class="text-center p-4"><%= @dog.name %>'s Profile</h1>
+      <div>
+        <p class=" text-center mt-3 p-2">Age : <%= @dog.age %></p>
+        <p class="text-center p-2">Breed : <%= @dog.breed %></p>
+        <p class="text-center p-2">Gender : <%= @dog.gender.capitalize %></p>
+        <p class="text-center p-2">Size : <%= @dog.size.capitalize %></p>
+        <p class="text-center p-2">Rate : $<%= @dog.price %>/day</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-6">
+      <div class="p-5 border border-3 rounded-3">
+        <h1 class="text-center mb-1">About me!</h1>
+        <p class="text-center"><%= @dog.description %></p>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <div class="airbnb-style text-center">
+        <%= render 'bookings/form', booking: @booking, class: "form text-center" %>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -1,9 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon flexbox">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon flexbox fixed-top">
 <div class="container">
 
 <div class= "flexbox">
-    <%= link_to '🐶', root_path, class: 'nav-bar-link-home'%>
-    <h1>  Dogs For Days </h1> </div>
+    <%= link_to '🐶', dogs_path, class: 'nav-bar-link-home'%>
+    <h1> <strong> Dogs For Days <strong></h1> </div>
 
 <div>
 
@@ -18,7 +18,6 @@
 <%= link_to 'My Bookings', bookings_path, class: 'nav-bar-link' %>
 <%= link_to 'My Dogs', owner_bookings_path, class: 'nav-bar-link' %>
 <%= link_to 'Add Your Dog', new_dog_path, class: 'nav-bar-link' %>
-<%= link_to 'Doggos', dogs_path, class: 'nav-bar-link' %>
  <%= link_to "🚪", destroy_user_session_path, class: 'nav-bar-link',data: {turbo_method: :delete} %>
           </li>
         <% else %>

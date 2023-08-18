@@ -8,7 +8,7 @@ class DogsController < ApplicationController
     @dogs = @dogs.where(size: params[:size]) if params[:size].present?
     #@dogs = @dogs.near(params[:location]) if params[:location].present?
 
-    #@dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
+    @dogs = dogs.where(gender: params[:gender]) if params[:gender].present?
 
 
     @markers = @dogs.geocoded.map do |dog|
@@ -38,7 +38,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to dogs_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :photo, :breed, :age, :size, :price)
+    params.require(:dog).permit(:name, :photo, :gender, :description, :breed, :age, :size, :price)
   end
 end

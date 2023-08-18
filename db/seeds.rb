@@ -56,14 +56,37 @@ addresses_url = 'https://gist.githubusercontent.com/trouni/599e03440e2552e803c54
 serialized_addresses = URI.open(addresses_url).read
 addresses = YAML.load(serialized_addresses)
 
+description_sample = ["As an eternal optimist, I live life with an infectious enthusiasm. Whether it's a sunrise walk or a midnight snack, I'm always ready to make the most of every moment.",
+  "I may be small in size, but I'm big on heart! My petite paws and giant personality are a winning combination that's sure to bring smiles to everyone I meet.",
+  "With eyes that could melt glaciers and a tail that wags like there's no tomorrow, I'm a master of spreading joy. Happiness is my specialty, and I'm available for unlimited snuggles.",
+  "Are you a fellow food lover? Let's embark on culinary adventures together! From tasting new treats to sharing cozy picnics, I'm your partner in gastronomic exploration.",
+  "Rain or shine, I'm always up for a game of fetch or a relaxing stroll. I'm that loyal friend who will be by your side through thick and thin, no matter the weather.",
+  "They say patience is a virtue, and I've mastered it to perfection. With a calm demeanor and a heart full of kindness, I'm the rock you can lean on during life's storms.",
+  "Adventure awaits, and I'm ready to lead the way! Whether it's a mountain hike or a city escapade, I'm here to show you the world through my curious eyes.",
+  "If you're seeking a partner in crime for spontaneous dance parties and secret hideaways, I'm your go-to companion. Let's create memories that'll last a lifetime!",
+  "From fetching your favorite slippers to greeting you with a tail-wagging welcome, I take pride in being the most dedicated member of the Welcome Home committee.",
+  "Rainbows, unicorns, and belly rubs—these are a few of my favorite things. My world is a magical place, and I'm here to sprinkle joy and wonder wherever I go.",
+  "I'm a curious canine on a mission to sniff out all the exciting spots in the neighborhood. Let's embark on daily adventures together and discover new sights, sounds, and scents!",
+  "I'm all about living life in the fast lane—or at least the fast fetch lane! When I'm not racing after tennis balls, you'll find me napping in the sun, recharging for our next playtime.",
+  "If you're in the market for a furry therapist, look no further. My intuitive nature and comforting presence are here to provide endless love, tail wags, and sympathetic ear scratches.",
+  "Fancy a foodie friend? Count me in! I'm known for my exceptional taste in treats and my ability to turn mealtime into a gourmet experience. Bon appétit, my human companion!",
+  "The world is my playground, and every day is a chance to make new friends. Whether it's a fellow pup or a friendly squirrel, I believe in spreading joy and building connections.",
+  "My superpower? Transforming rainy days into cozy cuddle sessions. With my fluffy coat and affectionate personality, I'm your go-to source of warmth and happiness.",
+  "Water isn't just my element—it's my source of endless joy. Lakes, pools, sprinklers—I'm always up for a splashin' good time. Ready to dive into aquatic adventures?",
+  "Got a puzzle or a tricky task? Challenge accepted! I thrive on mental stimulation and problem-solving, making me the perfect partner for games that engage both body and mind.",
+  "Need a touch of mischief in your life? I'm your furry prankster, always ready with a wagging tail and a twinkle in my eye. Let's keep the laughter rolling!",
+]
+
+
 User.all.each do |user|
   Dog.create!(
     name: Faker::Creature::Horse.unique.name,
     breed: Faker::Creature::Dog.breed,
-    age: Faker::Creature::Dog.age,
+    age: rand(1..8),
     size: Dog::SIZES.sample,
     price: Faker::Commerce.price,
     gender: ['male', 'female'].sample,
+    description: description_sample.sample,
     location: addresses.sample,
     image_url: "http://source.unsplash.com/featured/?dog>&#{rand(1000)}",
     user: user
