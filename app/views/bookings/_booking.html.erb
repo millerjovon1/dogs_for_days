@@ -1,9 +1,14 @@
 <div class="card-product">
   <%= image_tag (booking.dog.photo.attached? ? cl_image_path(booking.dog.photo.key) : booking.dog.image_url) %>
   <div class="card-product-infos">
-    <h2> <%=booking.dog.name  %></h2>
+    <div class="d-flex gap-3 align-items-center">
+      <h2> <%=booking.dog.name  %></h2>
+      <% if booking.pending? %>
+        <span class='p-2 booking-tag booking-<%= booking.status %>'><%= booking.status %></span>
+      <% end %>
+    </div>
     <strong>
-      <p>  <%=booking.user.first_name%>: is renting your dog</p>
+      <p>  <%=booking.user.first_name%>- is renting your dog</p>
     </strong>
     <div class="d-flex">
       <p>  <%= booking.start_date.strftime("%b %d") %> - </p>
@@ -13,15 +18,15 @@
       <div class="d-flex">
         <%= simple_form_for booking do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-          <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <%= f.submit 'Accept', class: 'btn btn-info mb-2' %>
         <% end %>
         <%= simple_form_for booking do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-          <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <%= f.submit 'Reject', class: 'btn btn-light mb-2' %>
         <% end %>
       </div>
-    <% else %>
-      <p class='booking-tag booking-<%= booking.status %>'><%= booking.status %></p>
+    <% elsif !booking.pending? %>
+      <span class='booking-tag booking-<%= booking.status %>'><%= booking.status %></span>
     <% end %>
   </div>
   <% if booking.accepted?  && booking.past? && current_user == booking.dog.user%>
@@ -40,6 +45,21 @@
       <div class="review-form-container">
         <%=render 'reviews/form', review: @review, user: booking.user %>
       </div>
+    <% end %>
+  <% elsif booking.accepted? && booking.past?  && current_user == booking.user %>
+    <% existing_review = Review.find_by(owner: booking.dog.user, renter: current_user) %>
+    <% if existing_review %>
+      <div class="card-product-infos">
+        <h2>Your review</h2>
+        <div class="d-flex">
+          <p><%= existing_review.content %></p>
+        </div>
+        <strong>
+          <p> Rating: <%= existing_review.rating %></p>
+        </strong>
+      </div>
+    <% else %>
+      <p>No Reviews Yet</p>
     <% end %>
   <% end %>
 </div>
