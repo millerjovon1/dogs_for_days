@@ -3,8 +3,10 @@
   <%= f.input :name, as: :string %>
   <%= f.input :breed, as: :string %>
   <%= f.input :age, as: :integer %>
-  <%= f.input :size, as: :string %>
+  <%= f.input :size, collection: ['Small', 'Medium', 'Large'], prompt: 'Select Size', input_html: { class: 'form-select' } %>
+  <%= f.input :gender, collection: ['female', 'male'], prompt: 'Select Gender', input_html: { class: 'form-select' } %>
   <%= f.input :price, as: :integer %>
+  <%= f.input :description, as: :text %>
   <%= f.input :photo, as: :file %>
   <%= f.submit class: 'btn btn-primary mt-2' %>
 <% end %>
