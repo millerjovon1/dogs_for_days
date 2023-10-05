@@ -4,7 +4,7 @@
 <img width="1512" alt="Screen Shot 2023-09-20 at 15 48 02" src="https://github.com/millerjovon1/dogs_for_days/assets/130570205/23a4330f-b569-46ba-bfe2-d8a670a1dcb5">
 
 <br>
-App home: [https://WHATEVER.herokuapp.com](https://dogs-for-days-97b3ca7f74fc.herokuapp.com/)
+App home: (https://dogs-for-days-97b3ca7f74fc.herokuapp.com/)
    
 
 ## Getting Started
