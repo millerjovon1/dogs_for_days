@@ -1,6 +1,6 @@
 # 📚 Project Name
 
-Dogs for Days
+<h2>Dogs for Days</h2>
 <img width="1512" alt="Screen Shot 2023-09-20 at 15 48 02" src="https://github.com/millerjovon1/dogs_for_days/assets/130570205/23a4330f-b569-46ba-bfe2-d8a670a1dcb5">
 
 <br>
