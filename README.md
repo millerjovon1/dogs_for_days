@@ -49,7 +49,7 @@ rails s
 Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illustrated-Miscellany-Jane-Mount/dp/1452167230) and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
 
 ## Team Members
-- [Douglas Berkley](https://www.linkedin.com/in/dougberkley/)
+- [Jovon Miller](https://www.linkedin.com/in/jovon-miller/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -57,4 +57,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 This project is licensed under the MIT License
 
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
